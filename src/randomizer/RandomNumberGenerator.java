@@ -8,18 +8,13 @@ package randomizer;
 import java.util.Random;
 
 /**
- *
+ * The RNG class allows for random number generation and has been setup to 
+ * put the numbers out in an interesting fashion...
+ * 
  * @author Kevin
  */
-public class RandomNumberGenerator implements Runnable {
-    private String number;
-    private Integer i;
-    private final Updater updater;
-    public boolean update;
-    
-    public RandomNumberGenerator(Updater updater) {
-        this.updater = updater;
-    }
+public class RandomNumberGenerator implements Runnable {    
+    //A constructor may be handy...
     
     @Override
     public void run() {
@@ -29,13 +24,14 @@ public class RandomNumberGenerator implements Runnable {
         int n = maximum - minimum + 1;
         
         for (int it = 1; it <= 1024; it++) {
-            i = ran.nextInt((maximum - minimum) + 1) + minimum;
+            int x = ran.nextInt((maximum - minimum) + 1) + minimum;
             it *= 2;
-            updater.update(i);
+            //Add something here to allow for passing numbers through threads
             try {
                 Thread.sleep(it);
             } catch (Exception e) {
                 System.err.println("Error pausing the thread...");
+                e.printStackTrace();
             }
         } 
     }

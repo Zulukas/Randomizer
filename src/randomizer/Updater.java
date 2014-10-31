@@ -5,27 +5,15 @@
  */
 package randomizer;
 
-import javafx.application.Platform;
-import javafx.scene.control.TextField;
-
 /**
- *
+ * Things that may be helpful: 
+ *      *What do we want to update?
+ *      *use this line of code where would be appropriate...
+ *          Platform.runLater(new Runnable() { //Code goes here// }
+ *      *a constructor may be handy
+ * 
  * @author Kevin
  */
 public class Updater {
-    public TextField tf;
-    
-    public Updater(TextField tf) {
-        this.tf = tf;
-    }
-    
-    public void update(final int number) {
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                tf.setText(Integer.toString(number));
-            }
-        });
-
-    }
+    //Make some wicked sweet code to do... stuff...
 }
